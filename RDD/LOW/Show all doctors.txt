@@ -1,0 +1,11 @@
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("LowLevelDF").getOrCreate()
+
+doctor = spark.read.csv("../dataset/doctor.csv", header=True, inferSchema=True)
+patient = spark.read.csv("../dataset/patient.csv", header=True, inferSchema=True)
+prescription = spark.read.csv("../dataset/prescription.csv", header=True, inferSchema=True)
+
+# Q1: Show all doctors
+print("All Doctors:")
+doctor.show()
