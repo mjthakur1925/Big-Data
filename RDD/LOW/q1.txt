@@ -1,0 +1,4 @@
+Q1: Count total number of patients.
+
+Solution:
+patient_rdd.count()

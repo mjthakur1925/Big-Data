@@ -1,0 +1,4 @@
+Q1: Find top 5 most prescribed drugs.
+
+Solution:
+prescription_rdd.map(lambda x: (x[3], 1)).reduceByKey(lambda a,b:a+b).takeOrdered(5, key=lambda x: -x[1])
