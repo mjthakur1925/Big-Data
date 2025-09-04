@@ -1,0 +1,12 @@
+RDD LOW – Q2
+ Dataset: datasets/Patient.csv
+ Question: Show first 5 records (as text)
+
+ Solution (PySpark):
+ from pyspark import SparkContext sc = SparkContext.getOrCreate() rdd =
+ sc.textFile("datasets/Patient.csv") header = rdd.first() data = rdd.filter(lambda x: x !=
+ header) print(data.take(5))
+ Explanation:
+ Reads CSV as text RDD and displays first 5 rows ignoring header.
+ Sample Output (illustrative):
+ [ '2,First_2,Last_2, ...', ... 
