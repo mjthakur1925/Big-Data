@@ -1,0 +1,11 @@
+ Dataset: datasets/Patient.csv
+ Question: Map to (PatientID, Age)
+ Solution (PySpark):
+ from pyspark import SparkContext sc = SparkContext.getOrCreate() rdd =
+ sc.textFile("datasets/Patient.csv") header = rdd.first() data = rdd.filter(lambda x: x !=
+ header).map(lambda l: l.split(",")) pairs = data.map(lambda x: (int(x[0]), int(x[3])))
+ print(pairs.take(5))
+ Explanation:
+ Splits each line and maps the first column (PatientID) and Age (4th col).
+ Sample Output (illustrative):
+ (1, 45) ..
